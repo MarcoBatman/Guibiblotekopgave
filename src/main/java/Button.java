@@ -3,7 +3,6 @@ import processing.core.PApplet;
 public class Button {
     //opretter booleans så knappen kan fungere som en knap
     boolean pressed;
-    boolean done;
     //her laver den variablerne der skal bruges til positionen og størelsen af knappen
     int x,y;
     int w,h;
@@ -31,17 +30,17 @@ public class Button {
         p.textAlign(p.CENTER);
         p.text(t,x+w/2,y+h/2);
 
-        //her køre den den action knappen har fået hvis den er trykket
-        if(pressed&&!done){
-        a.execute();
-        done=true;
-        }
+
+
+
     }
 
 // her chekker den om man er inde for knappens kanter og sætter knappen til pressed
     public void click(float xin,float yin){
         if (xin > x && xin < x + w && yin < y + h && yin > y ){
             pressed = true;
+            //her køre den den action knappen har fået hvis den er trykket
+            a.execute();
         }
     }
 // her tilføjer den en action til knappen
@@ -52,6 +51,6 @@ public class Button {
     // her sætter den knappen er trykket til false når man giver slip på knappen
     void release(){
         pressed=false;
-        done=false;
+
     }
 }

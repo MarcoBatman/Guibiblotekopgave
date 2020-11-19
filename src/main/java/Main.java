@@ -8,10 +8,12 @@ public class Main extends PApplet {
     //her laver jeg de 2 knap objekter en til at slå med en 10 sidet terning og en anden til at lå med en 6 sidet terningeng men det kan de ikke endu
     Button buttonTerning6 = new Button(10, 10, 150, 50, "Slå med 6s terning!",this);
     Button buttonTerning10 = new Button(340, 10, 150, 50, "Slå med 10s terning!",this);
-
+    Terning terning6 = new Terning(6);
+    Terning terning10 = new Terning(10);
     //her oprettes de to variabler der skal bruges til at vise slagene af teringerne på skærmen
     int sum;
     int terningeKast;
+
 
 
     // her sættes størrelsen af vinduet
@@ -26,7 +28,7 @@ public class Main extends PApplet {
 // her bliver den ting som knappen med 6 sider terningen skal gøre lavet
         buttonTerning6.addAction(new Action() {
                                      public void execute() {
-                                         terningeKast = (int)random(1, 6);
+                                         terningeKast = (int)random(1, terning6.sides+1);
                                          sum += terningeKast;
                                      }
                                  }
@@ -34,7 +36,7 @@ public class Main extends PApplet {
 // her bliver den ting som knappen med 10 sider terningen skal gøre lavet
         buttonTerning10.addAction(new Action() {
                                       public void execute() {
-                                          terningeKast = (int)random(1, 10);
+                                          terningeKast = (int)random(1, terning10.sides+1);
                                           sum += terningeKast;
                                       }
                                   }
